@@ -3,8 +3,7 @@ FROM librenms/librenms:23.5.0
 RUN apk --update --no-cache add -t build-dependencies php-xmlwriter \
  && cd /opt/librenms/ \
  && chmod 777 /opt/librenms/composer.* \
-              /opt/librenms/storage/logs/laravel.log \
-              /opt/librenms/logs/librenms.log \
+              /opt/librenms/logs/*.log \
               /opt/librenms/scripts/composer_wrapper.php \
  && chmod 777 /opt/librenms/scripts \
               /opt/librenms \
