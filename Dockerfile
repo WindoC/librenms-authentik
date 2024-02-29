@@ -1,4 +1,4 @@
-FROM librenms/librenms:23.11.0
+FROM librenms/librenms:24.2.0
 
 RUN apk --update --no-cache add -t build-dependencies php-xmlwriter \
  && cd /opt/librenms/ \
@@ -12,6 +12,3 @@ RUN apk --update --no-cache add -t build-dependencies php-xmlwriter \
               /opt/librenms/vendor/composer/* \
               /opt/librenms/bootstrap/* \
  && lnms plugin:add socialiteproviders/authentik
-
-# fixing for /opt/librenms/cache Permission denied ref:https://github.com/librenms/docker/pull/414
-RUN chown librenms:librenms /opt/librenms/cache
