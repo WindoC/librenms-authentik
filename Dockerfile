@@ -1,4 +1,4 @@
-FROM librenms/librenms:24.2.0
+FROM librenms/librenms:24.3.0
 
 RUN apk --update --no-cache add -t build-dependencies php-xmlwriter \
  && cd /opt/librenms/ \
