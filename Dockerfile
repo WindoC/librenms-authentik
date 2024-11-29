@@ -1,6 +1,6 @@
-FROM librenms/librenms:24.8.1
+FROM librenms/librenms:24.9.1
 
-RUN apk --update --no-cache add -t build-dependencies php-xmlwriter \
+RUN apk --update --no-cache add -t build-dependencies php83-xmlwriter \
  && cd /opt/librenms/ \
  && chmod 777 /opt/librenms/composer.* \
               /opt/librenms/logs/*.log \
