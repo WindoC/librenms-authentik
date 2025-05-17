@@ -1,7 +1,6 @@
 FROM librenms/librenms:25.5.0
 
 RUN apk --update --no-cache add -t build-dependencies php83-xmlwriter \
- && cd /opt/librenms/ \
  && chmod 777 /opt/librenms/composer.* \
               /opt/librenms/scripts/composer_wrapper.php \
  && chmod 777 /opt/librenms/scripts \
@@ -10,4 +9,5 @@ RUN apk --update --no-cache add -t build-dependencies php83-xmlwriter \
               /opt/librenms/vendor/composer \
               /opt/librenms/vendor/composer/* \
               /opt/librenms/bootstrap/* \
- && lnms plugin:add socialiteproviders/authentik
+ && find /opt/librenms/storage/framework/cache -exec chmod 777 {} \; \
+ && cd /opt/librenms/ && lnms plugin:add socialiteproviders/authentik
